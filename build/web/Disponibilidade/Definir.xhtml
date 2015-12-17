@@ -35,20 +35,22 @@
                         <br/>
                     </p:layoutUnit> 
 
-                    <p:layoutUnit position="center">
-   	
-                     <h3>Selecionar disponibilidade:</h3> 
-                     
-                     <h:selectOneRadio value="#{fase.opt}" layout="pageDirection">
-                         <f:selectItem  itemValue="afinidades" itemLabel="Afinidades" />
-                         <f:selectItem  itemValue="fase11" itemLabel="Fase I - Primeiro Quadrimestre"/>
-                         <f:selectItem  itemValue="fase12" itemLabel="Fase I - Segundo Quadrimestre"/>
-                         <f:selectItem  itemValue="fase13" itemLabel="Fase I - Terceiro Quadrimestre"/>
-                         <f:selectItem  itemValue="fase2"  itemLabel="Fase II"/>
-                    </h:selectOneRadio>
-                     <br/>
-                     <h:commandButton value="Submeter" action="#{fase.saveData()}"/>	
-           
+                       <p:layoutUnit position="center">
+
+                        <h3>Selecionar disponibilidade:</h3>
+                        <p:outputLabel for="checkbox" value="Habilitar Afinidades" />
+                        <h:selectBooleanCheckbox id="checkbox" value="#{fase.afinidades}"/>
+                        <br/>
+                        <h:selectOneRadio value="#{fase.opt}" layout="pageDirection">
+                            <f:selectItem  itemValue="fase1"  itemLabel="Fase I - Planejamento Anual"/>
+                            <f:selectItem  itemValue="fase21" itemLabel="Fase II - Primeiro Quadrimestre"/>
+                            <f:selectItem  itemValue="fase22" itemLabel="Fase II - Segundo Quadrimestre"/>
+                            <f:selectItem  itemValue="fase23" itemLabel="Fase II - Terceiro Quadrimestre"/>
+                        </h:selectOneRadio>
+                        <br/>
+                        <h:commandButton value="Submeter" action="#{fase.saveData()}"/>
+                        <h:commandButton  onclick="if (! confirm('Realmente deseja desabilitar todas as fases?')) return false" 
+                                          value="Desabilitar Fases" action="#{fase.desabilitarFases()}"/>
                     </p:layoutUnit>
                 </p:layout>
             </h:form>

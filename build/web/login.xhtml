@@ -29,7 +29,7 @@
 
                     <f:facet name="footer">
                         <p:commandButton value="Login" update="growl" actionListener="#{loginBean.doLogin2()}"
-                                         oncomplete="handleLoginRequest(xhr, status, args)" action="#{loginBean.page()}" />
+                                         oncomplete="handleLoginRequest(xhr, status, args)" action="/index.xhtml" />
                     </f:facet>  
                 </h:panelGrid>
             </p:dialog>
